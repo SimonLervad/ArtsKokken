@@ -14,7 +14,15 @@ var next = function() {
 		tæller[i].style.color = "white";
 		tællerTo[count].style.backgroundColor = "green";
 	}
+	for (j = 0; j < 5; j++) {
+		if (j === count) {
+			$(j).style.display = "block";
+		} else {
+			$(j).style.display = "none";
+		}
+	}
 }
+
 var back = function() {
 	if (count > 0) {
 		count--;
@@ -27,5 +35,12 @@ var back = function() {
 		tæller[count].style.backgroundColor = "green";
 		tæller[i].style.color = "black";
 		tællerTo[count].style.backgroundColor = "green";
+	}
+	for (j = 0; j < 5; j++) {
+		if (j === count) {
+			$(j).style.display = "block";
+		} else {
+			$(j).style.display = "none";
+		}
 	}
 }

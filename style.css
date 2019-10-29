@@ -38,7 +38,7 @@ nav {
 	flex-direction: column;
 }
 .row:nth-child(even) a:hover {
-	color:#5A9ABE;
+	text-decoration: underline;
 }
 header {
 	display:block;
@@ -154,7 +154,9 @@ content div {
 	text-align:center;
 	padding:20px;
 	margin-top:50px;
+	display:none;
 }
+.active {display:block;}
 .vejledning {
 	width:100%;
 	text-align:left;
