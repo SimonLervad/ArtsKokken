@@ -1,1 +1,35 @@
 /* stylesheet */
+* {
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+	font-family: helvetica;
+}
+body {
+	background-color:#f2f2f2;
+}
+nav {
+	background-color:#4E4E4E;
+	display:flex;
+	justify-content: space-between;
+}
+.row {
+	width:40%;
+	padding:0 50px;
+}
+.row img {width:100px;}
+.row:nth-child(even) {
+	display:flex;
+	justify-content: space-between;
+}
+.row:nth-child(even) a {
+	color:white;
+	padding:10px 25px;
+	margin:15px 25px;
+	text-align:center;
+	text-decoration: none;
+	display:block;
+	display:flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
