@@ -1,21 +1,31 @@
-let count = 1;
+let count = 0;
+var tæller = document.getElementsByClassName("tæller");
+var tællerTo = document.getElementsByClassName("tæller-to");
 var next = function() {
-	if (count < 5) {
+	if (count < 4) {
 		count++;
 		console.log(count);
-		for (i = 1; i < count; i++) {
-			$(i).style.backgroundColor = "transparent";
+		for (i = 0; i < count; i++) {
+			tæller[i].style.backgroundColor = "#5A9ABE";
+			tæller[i].style.color = "white";
+			tællerTo[i].style.backgroundColor = "transparent";
 		}
-		$(count).style.backgroundColor = "green";
+		tæller[count].style.backgroundColor = "green";
+		tæller[i].style.color = "white";
+		tællerTo[count].style.backgroundColor = "green";
 	}
 }
 var back = function() {
-	if (count > 1) {
+	if (count > 0) {
 		count--;
 		console.log(count);
-		for (i = 5; i > count; i--) {
-			$(i).style.backgroundColor = "transparent";
+		for (i = 4; i > count; i--) {
+			tæller[i].style.backgroundColor = "lightgrey";
+			tæller[i].style.color = "black";
+			tællerTo[i].style.backgroundColor = "transparent";
 		}
-		$(count).style.backgroundColor = "green";
+		tæller[count].style.backgroundColor = "green";
+		tæller[i].style.color = "black";
+		tællerTo[count].style.backgroundColor = "green";
 	}
 }

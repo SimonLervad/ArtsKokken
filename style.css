@@ -97,10 +97,9 @@ content div {
 	background-color:darkgreen;
 }
 .wrapper {
-	border:1px solid black;
 	max-width:1400px;
 	margin:100px auto auto auto;
-	padding:10px;
+	padding:25px;
 }
 .steps {
 	width:100%;
@@ -122,10 +121,10 @@ content div {
 	background-color:lightgrey;
 	text-align:center;
 	border-radius: 50px;
-	border:1px solid black;
 }
 .steps div:nth-child(1) {
 	background-color:green;
+	color:white;
 }
 .counter {
 	position:fixed;
@@ -151,6 +150,16 @@ content div {
 .counter button:hover {
 	color:darkgreen;
 }
+.box {
+	text-align:center;
+	padding:20px;
+	margin-top:50px;
+}
+.vejledning {
+	width:100%;
+	text-align:left;
+	margin:25px auto;
+}
 @media screen and (min-width:800px) {
 	.row:nth-child(even) {width:40%;}
 	.row:nth-child(even) a {padding:0 25px;}
@@ -161,7 +170,10 @@ content div {
 	header h2 {font-size:50px;width:75%;}
 	.button {font-size:27.5px;width:400px;padding:25px;}
 	.steps div:nth-child(even) {width:100px;}
+	.vejledning {width:75%;}
 }
 @media screen and (min-width:1400px) {
 	.steps div:nth-child(even) {width:200px;} 
+	.vejledning {width:50%;}
+	.wrapper {padding:0;}
 }
