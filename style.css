@@ -9,27 +9,100 @@ body {
 	background-color:#f2f2f2;
 }
 nav {
-	background-color:#4E4E4E;
+	background-color:#5A9ABE;
 	display:flex;
 	justify-content: space-between;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:75px;
 }
 .row {
-	width:40%;
-	padding:0 50px;
+	width:25%;
+	padding:7.5px 50px;
 }
 .row img {width:100px;}
 .row:nth-child(even) {
 	display:flex;
 	justify-content: space-between;
+	width:70%;
 }
 .row:nth-child(even) a {
 	color:white;
-	padding:10px 25px;
-	margin:15px 25px;
 	text-align:center;
 	text-decoration: none;
 	display:block;
 	display:flex;
 	justify-content: space-around;
 	flex-direction: column;
+}
+.row:nth-child(even) a:hover {
+	color:#5A9ABE;
+}
+header {
+	display:block;
+	background-image: url('kitchen.jpg');
+	background-size:cover;
+	background-position: center;
+	background-repeat: repeat;
+	max-width:1400px;
+	margin:75px auto 0 auto;
+	height:600px;
+	padding:50px;
+	padding-top:100px;
+}
+header h1 {
+	display:block;
+	width:100%;
+	color:white;
+	margin:25px 0;
+	font-size:50px;
+}
+header h2 {
+	display:block;
+	width:100%;
+	color:white;
+	margin:25px 0;
+	font-size:40px;
+}
+content {
+	max-width:1400px;
+	margin:auto;
+	display:flex;
+	justify-content: space-between;
+	flex-wrap:wrap;
+}
+content div {
+	background-color:#5A9ABE;
+	padding:25px;
+	width:100%;
+	text-align: center;
+	margin:25px;
+	color:white;
+}
+.button {
+	background-color:green;
+	padding:10px 25px;
+	display:block;
+	width:200px;
+	text-align:center;
+	color:black;
+	text-decoration: none;
+	color:white;
+	font-size:20px;
+	box-shadow: 0px 3px 15px black;
+}
+.button:hover {
+	background-color:darkgreen;
+}
+@media screen and (min-width:800px) {
+	.row:nth-child(even) {width:40%;}
+	.row:nth-child(even) a {padding:0 25px;}
+	header {margin-top:150px;padding-left:100px;}
+	content div {width: 250px; margin:25px 0;}
+	content {flex-wrap:nowrap;margin:25px auto;}
+	header h1 {font-size:75px;}
+	header h2 {font-size:50px;width:75%;}
+	.button {font-size:27.5px;width:400px;padding:25px;}
 }
