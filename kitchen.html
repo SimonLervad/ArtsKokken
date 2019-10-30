@@ -6,7 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Arts Køkken | Sammensæt dit eget køkken i vores online 2D builder</title>
 	<script src="canvas.js"></script>
+	<script src="betaling.js"></script>
 	<script src="id.js"></script>
+
 </head>
 <body>
 	<nav>
@@ -44,7 +46,7 @@
 
 		<!-- page 1 -->
 		<div class="box active" id="0">
-			<h2>Vejledning0</h2>
+			<h2>Vejledning</h2>
 			<h3 class="vejledning">1.</h3>
 			<p class="vejledning">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -73,8 +75,9 @@
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 		</div>
+		<!-- page 2 -->
 		<div class="box" id="1">
-			<h2>Vejledning1</h2>
+			<h2>Dit køkken</h2>
 			<h3 class="vejledning">1.</h3>
 			<p class="vejledning">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -103,97 +106,131 @@
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 		</div>
+		<!-- page 3 -->
 		<div class="box" id="2">
-			<h2>Vejledning2</h2>
-			<h3 class="vejledning">1.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<h3 class="vejledning">2.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<h3 class="vejledning">3.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+			<h2>Kontaktinfo</h2>
+			<!--
+			<div id='kontaktinfo'>
+
+            <p>
+                <label for='fornavn'>Fornavn:</label><br/>
+                <input type='text' id='fornavn' required/>
+            </p>
+						<p>
+                <label for='efternavn'>Efternavn:</label><br/>
+                <input type='text' id='efternavn' required/>
+            </p>
+						<p>
+                <label for='gade'>Gade:</label><br/>
+                <input type='text' id='gade' required/>
+            </p>
+						<p>
+                <label for='nummer'>Nummer:</label><br/>
+                <input type='text' id='title' required/>
+            </p>
+
+            <p>
+                <label for='postnummer'>Postnummer:</label><br/>
+                <input type='number' id='postnummer' min='1000' max='9999' value='6600' required/>
+            </p>
+						<p>
+                <label for='by'>By:</label><br/>
+                <input type='text' id='by' required/>
+            </p>
+						<p>
+                <label for='email'>E-mail:</Email><br/>
+                <input type='email' id='email' required/>
+            </p>
+
+
+            <p>
+                <button id='butt' class="buttonbetaling">Gå til betaling</button>
+            </p>
+
+						<div id='right'>
+            <p>Venligst tjek om kontaktinfo er korrekt før du påbegynder betaling</p>
+            <div id='tunearea'></div>
+        </div>
+        </div>
+			-->
+
+			<form style="width: 167px">
+				Fornavn: <input name="fornavn" id="fornavn" type="text"> <br>
+				Efternavn: <input name="efternavn" id="efternavn" type="text"> <br>
+				Adresse: <input name="adresse" id="adresse" type="text"> <br>
+				Postnummer: <input name="postnummer" id="postnummer" type="number"> <br>
+				By: <input name="by" id="by" type="text"> <br>
+				Email: <input name="email" id="email" type="mail"> <br>
+				<button id="send" type='button'>Send</button>
+			</form>
+
+			<br>
+			<p>Venligst tjek om kontaktinfo er korrekt før du påbegynder betaling</p>
+			<div id="placeholder"> </div>
 		</div>
+		<!-- page 4 -->
 		<div class="box" id="3">
-			<h2>Vejledning3</h2>
-			<h3 class="vejledning">1.</h3>
+			<h2>Betaling</h2>
 			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<h3 class="vejledning">2.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<h3 class="vejledning">3.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<form id='formid' method='post' style="width: 150px">
+					Kortnummer: &nbsp; <input type="number" name="creditcardnr" id="ccno" placeholder="4111111111111111" required> <br>
+					Udløbsdato: &nbsp;&nbsp;&nbsp; <input type="text" name="month" placeholder="11/19" id="exp" maxlength="5" required> <br>
+					Kontrolciffer: &nbsp;&nbsp;&nbsp; <input type="number" name="cvv" id="cvv" minlength="3" maxlength="4" placeholder="111" required> <br>
+					<button type="button" id="send">Gennemfør betaling</button>
+				</form>
+					<div id="place"></div>
 			</p>
 		</div>
+		<!-- page 5 -->
 		<div class="box" id="4">
-			<h2>Vejledning4</h2>
-			<h3 class="vejledning">1.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<h3 class="vejledning">2.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
-			<h3 class="vejledning">3.</h3>
-			<p class="vejledning">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+			<h2>Bestilling</h2>
+
 		</div>
 	</div>
 	<script src="counter.js"></script>
+	<script>
+
+
+
+let Tunes = {
+    intit: function(fornavn, efternavn, adresse, postnummer, by, email){
+        this.fornavn = fornavn;
+        this.efternavn = efternavn;
+				this.adresse = adresse;
+        this.postnummer = postnummer;
+        this.by = by;
+      	this.email = email;
+
+    },
+    vis: function(){
+        return `<p>${this.fornavn} ${this.efternavn}</p><p>${this.adresse}</p><p>${this.postnummer} ${this.by}</p><p>${this.email}</p>`;
+    }
+};
+
+const showTunes = function(){
+    $('placeholder').innerHTML = "";
+    for (let Tunes of arr){
+        $('placeholder').innerHTML += Tunes.vis() + '<br/>';
+        fornavn.value = "";
+        efternavn.value = "";
+				adresse.value = "";
+        postnummer.value = "";
+        by.value = "";
+				email.value = "";
+    }
+}
+
+function klik() {
+    let t = Object.create(Tunes);
+    t.intit(fornavn.value, efternavn.value, adresse.value, postnummer.value, by.value, email.value);
+    arr.push(t);
+    showTunes();
+};
+
+let arr = [];
+
+document.getElementById("send").addEventListener("click", klik);
+
+</script>
 </body>
 </html>

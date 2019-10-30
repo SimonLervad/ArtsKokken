@@ -93,6 +93,33 @@ content div {
 	font-size:20px;
 	box-shadow: 0px 3px 15px black;
 }
+
+/*
+START Rikke style på kontaktinfo siden
+*/
+form {
+	margin: 0 auto;
+  font-size: 15px;
+	text-align: left;
+}
+
+input {
+	padding: 7px;
+	margin-bottom: 17px;
+}
+form button{
+	padding: 7px;
+	margin-top: 20px;
+	border: 1px rgb(90, 154, 190) solid;
+	font-size: 14px;
+}
+
+
+/*
+SLUT Rikke style på kontaktinfo siden
+*/
+
+
 .button:hover {
 	background-color:darkgreen;
 }
@@ -175,7 +202,7 @@ content div {
 	.vejledning {width:75%;}
 }
 @media screen and (min-width:1400px) {
-	.steps div:nth-child(even) {width:200px;} 
+	.steps div:nth-child(even) {width:200px;}
 	.vejledning {width:50%;}
 	.wrapper {padding:0;}
 }
