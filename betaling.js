@@ -103,7 +103,7 @@ const newOne = function() {
 };
 
 const init = function() {
-    $('send').addEventListener('click', validate);
+    $('goSend').addEventListener('click', validate);
 };
 
 

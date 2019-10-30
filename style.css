@@ -93,33 +93,6 @@ content div {
 	font-size:20px;
 	box-shadow: 0px 3px 15px black;
 }
-
-/*
-START Rikke style på kontaktinfo siden
-*/
-form {
-	margin: 0 auto;
-  font-size: 15px;
-	text-align: left;
-}
-
-input {
-	padding: 7px;
-	margin-bottom: 17px;
-}
-form button{
-	padding: 7px;
-	margin-top: 20px;
-	border: 1px rgb(90, 154, 190) solid;
-	font-size: 14px;
-}
-
-
-/*
-SLUT Rikke style på kontaktinfo siden
-*/
-
-
 .button:hover {
 	background-color:darkgreen;
 }
@@ -202,7 +175,60 @@ SLUT Rikke style på kontaktinfo siden
 	.vejledning {width:75%;}
 }
 @media screen and (min-width:1400px) {
-	.steps div:nth-child(even) {width:200px;}
+	.steps div:nth-child(even) {width:200px;} 
 	.vejledning {width:50%;}
 	.wrapper {padding:0;}
+}
+
+#myCanvas, #canvasElements, #canvasright{
+	outline: #5A9ABE solid 1px;
+}
+
+#canvasright{ /*din pris*/
+	float: right;
+	height: 600px;
+	width: 300px;
+	padding: 20px;
+}
+
+#canvasLeft { /*canvas elementer*/
+	float: left;
+}
+
+#canvasCenter { /*køkken*/
+	margin: 0 auto;
+	width: 600px;
+	float: left;
+}
+#canvasSite{
+
+}
+
+form {
+	margin: 0 auto;
+  font-size: 15px;
+	text-align: left;
+}
+
+input {
+	padding: 7px;
+	margin-bottom: 17px;
+}
+form button{
+	padding: 7px;
+	margin-top: 20px;
+	border: 1px rgb(90, 154, 190) solid;
+	font-size: 14px;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: left;
+	width:200px;
+}
+.align{
+	margin: 0 auto;
+    width: 367px;
 }
