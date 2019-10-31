@@ -55,7 +55,21 @@ const validate = function(e) {
     cc.isExpDate(); 
     cc.isValid();
     $('place').innerHTML =  cc.isValid();
-    //godkendt();
+
+       //Fortæller om købet er godkendt eller ej
+        const godkendt = function() {
+            //Kortnummer: 4111111111111111
+            //udløbsdato: 11/19
+            //kontrolcifre: 111
+            for(i = 0; i < 5; i++){
+                if(cc.isValid() === true){
+                    return $('place').innerHTML = '<br> Betalingen er gennemført';
+                }else{
+                    return $('place').innerHTML = '<br> Betalingen er ikke gennemført';
+                }
+            }   
+        }
+        godkendt();
     
     if (!cc.isValid() === 0) { //Er kortet valid? 
         $('place').innerHTML = '<br> Kontonummeret er ikke korrekt';
@@ -75,26 +89,11 @@ const validate = function(e) {
     } else {
         return true;
     }
-    
+
 };
 
 
-//Har problemer med at fortælle om købet er godkendt eller ej
-const godkendt = function() {
-    //Kortnummer: 4111111111111111
-    //udløbsdato: 11/19
-    //kontrolcifre: 111
-    console.log('gokednt');
-    for(i = 0; i < 5; i++){
-        console.log('test 2')
-        if(validate() === true){
-            console.log('test');
-            return $('place').innerHTML = '<br> Betalingen er gennemført';
-        }else{
-            return $('place').innerHTML = '<br> Betalingen er ikke gennemført';
-        }
-    }   
-};
+
 
 const newOne = function() {
     ccno.value = "";

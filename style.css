@@ -7,6 +7,7 @@
 }
 body {
 	background-color:#f2f2f2;
+	overflow-y: hidden;
 }
 nav {
 	background-color:#5A9ABE;
@@ -259,8 +260,9 @@ form button{
 .right{
 	float: left;
 	width:200px;
+	margin-left: 28px;
 }
 .align{
 	margin: 0 auto;
-    width: 367px;
+	width: 400px;
 }

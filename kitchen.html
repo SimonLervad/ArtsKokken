@@ -6,8 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Arts Køkken | Sammensæt dit eget køkken i vores online 2D builder</title>
 	<script src="canvas.js"></script>
-	<script src="betaling.js"></script>
 	<script src="id.js"></script>
+	
 </head>
 <body>
 	<nav>
@@ -135,7 +135,7 @@
 					</form>
 					</div>
 					<div class="right">
-					<p>Venligst tjek om dine ontaktinformationer er korrekt, <br>
+					<p>Venligst tjek om dine kontaktinformationer er korrekt, <br>
 						før du påbegynder betaling</p><br>
 					<div id="placeholder"> </div>
 					</div>
@@ -144,24 +144,26 @@
 		<!-- page 4 -->
 		<div class="box" id="3">
 			<h2 class="title">Betaling</h2>
-			<p class="vejledning">
+			<div class="align">
 				<form id='formid' method='post' style="width: 150px">
 					Kortnummer: &nbsp; <input type="number" name="creditcardnr" id="ccno" placeholder="4111111111111111" required> <br>
 					Udløbsdato: &nbsp;&nbsp;&nbsp; <input type="text" name="month" placeholder="11/19" id="exp" maxlength="5" required> <br>
 					Kontrolciffer: &nbsp;&nbsp;&nbsp; <input type="number" name="cvv" id="cvv" minlength="3" maxlength="4" placeholder="111" required> <br>
 					<button type="button" id="goSend">Gennemfør betaling</button>
 				</form>
-					<div id="place"></div>
-			</p>
+					<br><div id="place"></div>
+			</div>
 		</div>
 		<!-- page 5 -->
 		<div class="box" id="4">
 			<h2 class="title">Bestilling</h2>
-			<div id="bestilling"></div>
+			<div id="bestilling" class="align"></div> 
 		</div>
 	</div>
 	<script src="counter.js"></script>
 	<script src="myKitchen.js"></script>
 	<script src="info.js"></script>
+	<script src="betaling.js"></script>
+	
 </body>
 </html>

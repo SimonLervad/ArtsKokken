@@ -1,4 +1,4 @@
-
+	
 let Tunes = {
     intit: function(fornavn, efternavn, adresse, postnummer, by, email){
         this.fornavn = fornavn;
@@ -19,13 +19,13 @@ const showTunes = function(){
     for (let Tunes of arr){
 		$('placeholder').innerHTML += Tunes.vis() + '<br/>';
 		//$('bestilling').innerHTML =`<p> Kære ${this.fornavn} ${this.efternavn}, <br> mange tak for din bestilling. <br> Vi sender din bestilling til ${this.adresse}, ${this.postnummer} ${this.by} hurtigst muligt. <br> Mange hilsner Arts </p>`;
+		$('bestilling').innerHTML ="<p> Kære " + fornavn.value + " " + efternavn.value + ", <br><br> mange tak for din bestilling. <br> Vi sender din bestilling til din adresse, <br>" + adresse.value + "<br>" + postnummer.value + " " + by.value + "<br> hurtigst muligt. <br><br> Mange hilsner ARTS køkken </p>";
 		fornavn.value = "";
         efternavn.value = "";
 		adresse.value = "";
         postnummer.value = "";
         by.value = "";
         email.value = "";
-        $('bestilling').innerHTML ="<p> Kære " + fornavn.value + " " + efternavn.value + ", <br><br> mange tak for din bestilling. <br> Vi sender din bestilling til din adresse, <br>" + adresse.value + ", <br>" + postnummer.value + " " + by.value + "<br> hurtigst muligt. <br><br> Mange hilsner Arts </p>";
 
     }
 }
