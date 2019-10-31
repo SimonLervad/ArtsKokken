@@ -88,7 +88,7 @@ let initialize = function () {
 
     // Dør åben, vandret og lodret
     let rect4 = Object.create(Shape);
-    rect4.init(canElm, 10, 200, 15, 30, '#AD6931', 0, "Dør");
+    rect4.init(canElm, 10, 200, 15, 30, '#AD6931');
 
     let rect5 = Object.create(overskrift);
     rect5.init(canElm, 10, 20, "Skabe");
@@ -130,7 +130,10 @@ function priceSum() {
         sum = sum + shapes2[i].price;
     }
     $("sum").innerHTML = sum;
+   // $('varePris').innerHTML = 'Den samlede pris for dine varer er: <br>' + sum;
+    $('priceInfo').innerHTML = 'Den samlede pris for dine varer er: ' + sum;
 }
+
 
 var priceCount = 0;
 function price() {
@@ -242,25 +245,15 @@ let hitMove = function (ev) {
                         var pushX = distanceX - $("myCanvas").width;
                         x1 = x1 - pushX;
                     }
-                    for (j = 0; j < (shapes2.length - 1); j++) {
-                        if (x1 > shapes2[j].x) {
-                            console.log("den står på højre side")
-                            if (x1 < (shapes2[j].x + shapes2[j].width)) {
-                                x1 = (shapes2[j].x + shapes2[j].width);
-                            }
-                        } else {
-                            console.log("den står på venstre side")
-                            if ((x1 + shapes2[i].width) > shapes2[j].x) {
-                                x1 = shapes2[j].x - shapes2[i].width;
-                            }
-                        }
-                    }
                     let y1 = (e.clientY - bb1.top) * (this.height / bb1.height) - (shapes2[i].height / 2);
                     if (y1 < 0) {y1 = 0;}
                     if (y1 + shapes2[i].height > $("myCanvas").height) {
                         var distanceY = y1 + shapes2[i].height;
                         var pushY = distanceY - $("myCanvas").height;
                         y1 = y1 - pushY;
+                        cx.translate(x1, y1);
+                        cx.rotate(Math.PI);
+                        cx.translate(-x1, -y1);
                     }
                     shapes2[i].x = x1;
                     shapes2[i].y = y1;
@@ -287,31 +280,12 @@ let hittest = function (ev) {
         let x = (ev.clientX - bb.left) * (this.width / bb.width);
         let y = (ev.clientY - bb.top) * (this.height / bb.height);
         if (cx.isPointInPath(x, y)) {
-            let bb1 = this.getBoundingClientRect();
-            let x1 = $("myCanvas").width / 2 - (shapes[i].width / 2);
-            let y1 = $("myCanvas").height / 2 - (shapes[i].height / 2);
-            let obj;
-            if (shapes[i].type === "rect") {
-                obj = Object.create(Shape);
-                obj.init(can, x1, y1, 
-                        shapes[i].width, shapes[i].height,
-                        shapes[i].color,
-                        shapes[i].price,
-                        shapes[i].name);
-                isOverlapping(obj); 
-            } else {
-                obj = Object.create(circle);
-                obj.init(can, x1, y1, 
-                        shapes[i].radius, shapes[i].Start, shapes[i].End, shapes[i].sandt,
-                        shapes[i].color);
-                isOverlapping(obj);
-            }
-            repeater(can, shapes2);
-        };
-    }
-        /*if (cx.isPointInPath(x, y)) {
             // we're in a loop, is this array element the 
             // one we clicked? If yes click in other canvas
+            cx.strokeStyle = "red";
+            cx.lineWidth = 2;
+            cx.strokeRect(shapes[i].x, shapes[i].y, shapes[i].width, shapes[i].height);
+            cx.stroke();
             can.canvas.addEventListener('click', function placeInmyCanvas(e) {
                     let bb1 = this.getBoundingClientRect();    // yes
                     // other canvas as std object
@@ -335,9 +309,12 @@ let hittest = function (ev) {
                         isOverlapping(obj);
                     }
                     repeater(can, shapes2);
+                    cx.lineWidth = 0;
                     can.canvas.removeEventListener('click', placeInmyCanvas);
                 });
-        }*/
+            cx.lineWidth = 0;
+        }
+    }
 }
 
 let paint = function (cv, arr) {

@@ -36,7 +36,7 @@ let CreditCard = {
         }
     },
     vis: function(){
-        return `<p>${this.ccnumber} <br> ${this.expdate} <br> ${this.cvv}</p>`;
+        return `<p> Kortnummer: ${this.ccnumber} <br> Udløbsdato: ${this.expdate} <br> Kontolcifre: ${this.cvv}</p>`;
     }
 
 
@@ -63,9 +63,11 @@ const validate = function(e) {
             //kontrolcifre: 111
             for(i = 0; i < 5; i++){
                 if(cc.isValid() === true){
-                    return $('place').innerHTML = '<br> Betalingen er gennemført';
+                    $('place').innerHTML = '<br> Kortet er godkendt';
+                    $('KontoInfo').innerHTML =  cc.vis() + '<br> Kortet er godkendt';
                 }else{
-                    return $('place').innerHTML = '<br> Betalingen er ikke gennemført';
+                    $('place').innerHTML = '<br> Kortet er ikke godkendt';
+                    $('KontoInfo').innerHTML =  cc.vis() + '<br> Kortet er ikke godkendt';
                 }
             }   
         }

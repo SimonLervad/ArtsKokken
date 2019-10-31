@@ -17,10 +17,11 @@ let Tunes = {
 const showTunes = function(){
     $('placeholder').innerHTML = "";
     for (let Tunes of arr){
-		$('placeholder').innerHTML += Tunes.vis() + '<br/>';
-		//$('bestilling').innerHTML =`<p> Kære ${this.fornavn} ${this.efternavn}, <br> mange tak for din bestilling. <br> Vi sender din bestilling til ${this.adresse}, ${this.postnummer} ${this.by} hurtigst muligt. <br> Mange hilsner Arts </p>`;
-		$('bestilling').innerHTML ="<p> Kære " + fornavn.value + " " + efternavn.value + ", <br><br> mange tak for din bestilling. <br> Vi sender din bestilling til din adresse, <br>" + adresse.value + "<br>" + postnummer.value + " " + by.value + "<br> hurtigst muligt. <br><br> Mange hilsner ARTS køkken </p>";
-		fornavn.value = "";
+        $('placeholder').innerHTML += Tunes.vis() + '<br/>';
+        $('bestillingInfo').innerHTML += Tunes.vis() + '<br/>';
+		//$('bestilling').innerHTML ="<p> Kære " + fornavn.value + " " + efternavn.value + ", <br><br> mange tak for din bestilling. <br>";
+       //  $('bestilling2').innerHTML ="<br> Vi sender din bestilling til din adresse, <br>" + adresse.value + "<br>" + postnummer.value + " " + by.value + "<br> hurtigst muligt. <br><br> Mange hilsner ARTS køkken </p>";
+        fornavn.value = "";
         efternavn.value = "";
 		adresse.value = "";
         postnummer.value = "";

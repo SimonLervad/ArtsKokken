@@ -266,3 +266,27 @@ form button{
 	margin: 0 auto;
 	width: 400px;
 }
+
+.border{
+	outline: 1px solid rgb(90, 154, 190);
+	height: 200px;
+	width: 200px;
+	float: left;
+	padding: 9px;
+}
+.b2{
+	outline: 1px solid rgb(90, 154, 190);
+	height: auto;
+	width: 100%;
+	float: left;
+	padding: 9px;
+}
+
+.b3 {
+	background-color: rgb(90, 154, 190);
+	color:#fff;
+	margin-top: 15px;
+	font-size: 15px;
+	height: 10%;
+    width: 50%;
+}
