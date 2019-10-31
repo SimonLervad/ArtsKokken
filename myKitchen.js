@@ -14,8 +14,8 @@ let Shape = {
 
     draw() {
         this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
         this.ctx.beginPath();
+        this.ctx.fillRect(this.x, this.y, this.width, this.height);
         this.ctx.moveTo(this.x, this.y + this.height);    
         this.ctx.lineTo(this.x, this.y + this.height + 5);   
         this.ctx.lineTo(this.x + this.width, this.y + this.height + 5);
@@ -72,22 +72,23 @@ let initialize = function () {
     can = Object.create(Canvas);
     can.init('myCanvas', 'transparent');
     canElm.canvas.addEventListener('click', hittest);
+    can.canvas.addEventListener('click', hitMove);
     // Creating objects
     // Gulvelementer Vandret
     let rect = Object.create(Shape);
-    rect.init(canElm, 10, 30, 40, 60, '#518FD8', 2999, "Lille skab");
+    rect.init(canElm, 10, 30, 20, 30, '#518FD8', 2999, "Lille skab");
     let rect1 = Object.create(Shape);
-    rect1.init(canElm, 60, 30, 60, 60, '#518FD8', 3999, "Skab");
+    rect1.init(canElm, 60, 30, 30, 30, '#518FD8', 3999, "Skab");
 
     // Vægelementer Vandret
     let rect2 = Object.create(Shape);
-    rect2.init(canElm, 10, 130, 60, 30, '#3185AD', 2999, "Vægskab");
+    rect2.init(canElm, 10, 130, 30, 15, '#3185AD', 2999, "Vægskab");
     let rect3 = Object.create(Shape);
-    rect3.init(canElm, 80, 130, 30, 30, '#3185AD', 1999, "½ vægskab");
+    rect3.init(canElm, 80, 130, 15, 15, '#3185AD', 1999, "½ vægskab");
 
     // Dør åben, vandret og lodret
     let rect4 = Object.create(Shape);
-    rect4.init(canElm, 10, 200, 30, 60, '#AD6931');
+    rect4.init(canElm, 10, 200, 15, 30, '#AD6931');
 
     let rect5 = Object.create(overskrift);
     rect5.init(canElm, 10, 20, "Skabe");
@@ -162,7 +163,10 @@ function isOverlappingY(obj) {
     if (obj.y + obj.height > myCanvas.height) {
         var distanceh = obj.y + obj.height;
         var pushh = distanceh - myCanvas.height;
-        obj.y = obj.y - push;
+        obj.y = obj.y - pushh;
+    }
+    if (obj.y < 0) {
+        obj.y = 0;
     }
     if (shapes2.length === 0) {
         return false;
@@ -191,6 +195,9 @@ function isOverlappingX(obj) {
         var push = distance - myCanvas.width;
         obj.x = obj.x - push;
     }
+    if (obj.x < 0) {
+        obj.x = 0;
+    }
     if (shapes2.length === 0) {
         return false;
     } else {
@@ -212,6 +219,49 @@ function isOverlappingX(obj) {
 
 }
 
+let hitMove = function (ev) {
+    for (let i = 0; i < shapes2.length; i++) {
+        let cx = shapes2[i].ctx;
+        cx.beginPath();
+        cx.rect(shapes2[i].x, shapes2[i].y, shapes2[i].width, shapes2[i].height);
+        cx.closePath();
+        let bb = this.getBoundingClientRect();
+        let x = (ev.clientX - bb.left) * (this.width / bb.width);
+        let y = (ev.clientY - bb.top) * (this.height / bb.height);
+        if (cx.isPointInPath(x, y)) {
+            cx.strokeStyle = "red";
+            cx.lineWidth = 2;
+            cx.strokeRect(shapes2[i].x, shapes2[i].y, shapes2[i].width, shapes2[i].height);
+            cx.stroke();
+            can.canvas.addEventListener('click', function placeInmyCanvas(e) {
+                    let bb1 = this.getBoundingClientRect();
+                    let x1 = (e.clientX - bb1.left) * (this.width / bb1.width) - (shapes2[i].width / 2);
+                    if (x1 < 0) {x1 = 0;}
+                    if (x1 + shapes2[i].width > $("myCanvas").width) {
+                        var distanceX = x1 + shapes2[i].width;
+                        var pushX = distanceX - $("myCanvas").width;
+                        x1 = x1 - pushX;
+                    }
+                    let y1 = (e.clientY - bb1.top) * (this.height / bb1.height) - (shapes2[i].height / 2);
+                    if (y1 < 0) {y1 = 0;}
+                    if (y1 + shapes2[i].height > $("myCanvas").height) {
+                        var distanceY = y1 + shapes2[i].height;
+                        var pushY = distanceY - $("myCanvas").height;
+                        y1 = y1 - pushY;
+                        cx.translate(x1, y1);
+                        cx.rotate(Math.PI);
+                        cx.translate(-x1, -y1);
+                    }
+                    shapes2[i].x = x1;
+                    shapes2[i].y = y1;
+
+                    repeater(can, shapes2);
+                    can.canvas.removeEventListener('click', placeInmyCanvas);
+                });
+        }
+    }
+}
+
 let hittest = function (ev) {
     for (let i = 0; i < shapes.length; i++) {
         let cx = shapes[i].ctx;
@@ -229,12 +279,16 @@ let hittest = function (ev) {
         if (cx.isPointInPath(x, y)) {
             // we're in a loop, is this array element the 
             // one we clicked? If yes click in other canvas
+            cx.strokeStyle = "red";
+            cx.lineWidth = 2;
+            cx.strokeRect(shapes[i].x, shapes[i].y, shapes[i].width, shapes[i].height);
+            cx.stroke();
             can.canvas.addEventListener('click', function placeInmyCanvas(e) {
                     let bb1 = this.getBoundingClientRect();    // yes
                     // other canvas as std object
                     // convert mouse coordinates to canvas coordinates
-                    let x1 = (e.clientX - bb1.left) * (this.width / bb1.width);
-                    let y1 = (e.clientY - bb1.top) * (this.height / bb1.height);
+                    let x1 = (e.clientX - bb1.left) * (this.width / bb1.width) - (shapes[i].width / 2);
+                    let y1 = (e.clientY - bb1.top) * (this.height / bb1.height) - (shapes[i].height / 2);
                     let obj;
                     if (shapes[i].type === "rect") {
                         obj = Object.create(Shape);
@@ -252,10 +306,10 @@ let hittest = function (ev) {
                         isOverlapping(obj);
                     }
                     repeater(can, shapes2);
+                    cx.lineWidth = 0;
                     can.canvas.removeEventListener('click', placeInmyCanvas);
                 });
-        } else {
-            // window.alert("nohit: "+x+","+y);
+            cx.lineWidth = 0;
         }
     }
 }
