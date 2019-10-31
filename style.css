@@ -230,7 +230,7 @@ content div {
 }
 @media screen and (min-width:1400px) {
 	.row:nth-child(even) {width:40%;}
-	.steps div:nth-child(even) {width:200px;} 
+	.steps div:nth-child(even) {width:200px;}
 	.vejledning {width:60%;}
 	.wrapper {padding:0;}
 }
