@@ -13,6 +13,7 @@ nav {
 	display:flex;
 	justify-content: space-between;
 	position:fixed;
+	z-index:10;
 	top:0;
 	left:0;
 	width:100%;
@@ -136,6 +137,7 @@ content div {
 	display:flex;
 	justify-content: center;
 	background-color:lightgrey;
+	z-index:10;
 }
 .counter div {
 	padding:15px;
@@ -155,15 +157,66 @@ content div {
 	padding:20px;
 	margin-top:50px;
 	display:none;
+	flex-wrap:wrap;
 }
-.active {display:block;}
+.active {display:flex;}
 .vejledning {
 	width:100%;
 	text-align:left;
-	margin:25px auto;
+	margin:auto;
+}
+
+.canvasSite {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	text-align:center;
+	display:none;
+	justify-content: space-between;
+	flex-wrap:wrap;
+	padding-top:200px;
+	margin-bottom:75px;
+}
+.canvasSite div {
+	padding:25px;
+	min-width:200px;
+	border:1px solid black;
+	position: relative;
+	margin:0 10px;
+}
+.canvasSite div:nth-child(3) {
+	width:50%;
+	padding:25px;
+}
+#myCanvas {border: #5A9ABE solid 1px;}
+.title {
+	width:100%;
+	margin:25px 0;
+}
+.canvasSite form {
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	text-align:center;
+}
+.canvasSite ul {
+	display:flex;
+	justify-content: space-around;
+	flex-wrap:wrap;
+	flex-direction:column-reverse;
+	border-bottom:1px solid black;
+	border-top:1px solid black;
+}
+.canvasSite ul li:nth-child(1) {border-top:1px solid black;}
+.canvasSite ul li {
+	padding:5px;
+	display:flex;
+	justify-content: space-between;
 }
 @media screen and (min-width:800px) {
-	.row:nth-child(even) {width:40%;}
+	.row:nth-child(even) {width:60%;}
 	.row:nth-child(even) a {padding:0 25px;}
 	header {margin-top:150px;padding-left:100px;}
 	content div {width: 250px; margin:25px 0;}
@@ -175,34 +228,13 @@ content div {
 	.vejledning {width:75%;}
 }
 @media screen and (min-width:1400px) {
+	.row:nth-child(even) {width:40%;}
 	.steps div:nth-child(even) {width:200px;} 
-	.vejledning {width:50%;}
+	.vejledning {width:60%;}
 	.wrapper {padding:0;}
 }
 
-#myCanvas, #canvasElements, #canvasright{
-	outline: #5A9ABE solid 1px;
-}
-
-#canvasright{ /*din pris*/
-	float: right;
-	height: 600px;
-	width: 300px;
-	padding: 20px;
-}
-
-#canvasLeft { /*canvas elementer*/
-	float: left;
-}
-
-#canvasCenter { /*køkken*/
-	margin: 0 auto;
-	width: 600px;
-	float: left;
-}
-#canvasSite{
-
-}
+#myCanvas, #canvasElements {border: #5A9ABE solid 1px;margin-bottom:50px;}
 
 form {
 	margin: 0 auto;

@@ -23,7 +23,7 @@ var next = function() {
 // looper igennem alle div på siden og gemmer alle undtager den vi nu er nået til.
 	for (j = 0; j < 5; j++) {
 		if (j === count) {
-			$(j).style.display = "block";
+			$(j).style.display = "flex";
 		} else {
 			$(j).style.display = "none";
 		}
@@ -41,12 +41,12 @@ var back = function() {
 			tællerTo[i].style.backgroundColor = "transparent";
 		}
 		tæller[count].style.backgroundColor = "green";
-		tæller[i].style.color = "black";
+		tæller[i].style.color = "white";
 		tællerTo[count].style.backgroundColor = "green";
 	}
 	for (j = 0; j < 5; j++) {
 		if (j === count) {
-			$(j).style.display = "block";
+			$(j).style.display = "flex";
 		} else {
 			$(j).style.display = "none";
 		}

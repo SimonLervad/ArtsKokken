@@ -1,0 +1,39 @@
+<!doctype html>
+<html language="en">
+    <!-- nmlCanvas1.html -->
+    <head>
+        <meta charset="utf-8"/>
+        <title>Canvas Assignment 0 - 1</title>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="500" height="500" 
+                style="outline: 1px solid magenta;">
+        </canvas>
+    </body>
+</html>
+<script>
+'use strict';
+let initialize = function () {
+    let canvas = document.getElementById('myCanvas');
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        ctx.beginPath();        // new path
+        ctx.moveTo(10, 10);    // goto coordinate in canvas
+        ctx.lineTo(200, 10);    // line to coordinate
+        ctx.lineTo(200, 190);
+        ctx.lineTo(10, 190);
+        ctx.closePath(10, 10);
+        ctx.moveTo(10, 200);
+        ctx.lineTo(200, 200);
+
+        ctx.fillStyle = 'silver';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 5;
+        ctx.fill();             // fills poly
+        ctx.stroke();           // draws lines    
+    }
+}
+
+window.addEventListener('load', initialize);
+</script>
