@@ -19,8 +19,8 @@ const showTunes = function(){
     for (let Tunes of arr){
         $('placeholder').innerHTML += Tunes.vis() + '<br/>';
         $('bestillingInfo').innerHTML += Tunes.vis() + '<br/>';
-		//$('bestilling').innerHTML ="<p> Kære " + fornavn.value + " " + efternavn.value + ", <br><br> mange tak for din bestilling. <br>";
-       //  $('bestilling2').innerHTML ="<br> Vi sender din bestilling til din adresse, <br>" + adresse.value + "<br>" + postnummer.value + " " + by.value + "<br> hurtigst muligt. <br><br> Mange hilsner ARTS køkken </p>";
+		$('bestilling').innerHTML ="<p> Kære " + fornavn.value + " " + efternavn.value + ", <br><br> mange tak for din bestilling. <br>";
+        $('bestilling2').innerHTML ="<br> Vi sender din bestilling til din adresse, <br>" + adresse.value + "<br>" + postnummer.value + " " + by.value + "<br> hurtigst muligt. <br><br> Mange hilsner ARTS køkken </p>";
         fornavn.value = "";
         efternavn.value = "";
 		adresse.value = "";

@@ -159,6 +159,7 @@ content div {
 	margin-top:50px;
 	display:none;
 	flex-wrap:wrap;
+	overflow:scroll;
 }
 .active {display:flex;}
 .vejledning {
