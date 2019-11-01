@@ -157,9 +157,12 @@ content div {
 	text-align:center;
 	padding:20px;
 	margin-top:50px;
+	height:570px;
 	display:none;
 	flex-wrap:wrap;
 	overflow:scroll;
+	background-color:orange;
+	padding-bottom:200px;
 }
 .active {display:flex;}
 .vejledning {
