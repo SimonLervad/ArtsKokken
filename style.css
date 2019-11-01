@@ -161,7 +161,6 @@ content div {
 	display:none;
 	flex-wrap:wrap;
 	overflow:scroll;
-	background-color:orange;
 	padding-bottom:200px;
 }
 .active {display:flex;}
