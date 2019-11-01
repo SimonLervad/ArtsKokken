@@ -26,27 +26,6 @@ let Shape = {
     }
 };
 
-let circle = {
-    init(cv, x, y, radius, Start, End, sandt, color) {
-        this.ctx = cv.context;
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.Start = Start;
-        this.End = End;
-        this.sandt = sandt;
-        this.color = color;
-        this.type = "circ";
-    },
-
-    draw() {
-        this.ctx.beginPath();
-        this.ctx.fillStyle = this.color;
-        this.ctx.arc(this.x, this.y, this.radius, this.Start, this.End, this.sandt);
-        this.ctx.fill();
-    }
-};
-
 let overskrift = {
     init(cv, x, y, name, color) {
         this.ctx = cv.context;
@@ -76,15 +55,15 @@ let initialize = function () {
     // Creating objects
     // Gulvelementer Vandret
     let rect = Object.create(Shape);
-    rect.init(canElm, 10, 30, 20, 30, '#518FD8', 2999, "Lille skab");
+    rect.init(canElm, 10, 30, 20, 30, '#518FD8', 299, "Lille skab");
     let rect1 = Object.create(Shape);
-    rect1.init(canElm, 60, 30, 30, 30, '#518FD8', 3999, "Skab");
+    rect1.init(canElm, 60, 30, 30, 30, '#518FD8', 399, "Skab");
 
     // Vægelementer Vandret
     let rect2 = Object.create(Shape);
-    rect2.init(canElm, 10, 130, 30, 15, '#3185AD', 2999, "Vægskab");
+    rect2.init(canElm, 10, 130, 30, 15, '#3185AD', 299, "Vægskab");
     let rect3 = Object.create(Shape);
-    rect3.init(canElm, 80, 130, 15, 15, '#3185AD', 1999, "½ vægskab");
+    rect3.init(canElm, 80, 130, 15, 15, '#3185AD', 199, "½ vægskab");
 
     // Dør åben, vandret og lodret
     let rect4 = Object.create(Shape);
@@ -250,30 +229,49 @@ let hitMove = function (ev) {
                         var pushY = distanceY - $("myCanvas").height;
                         y1 = y1 - pushY;
                     }
+
                     for (j = 0; j < (shapes2.length - 1); j++) {
                         if (x1 > shapes2[j].x) {
-                            console.log("den står på højre side")
+                            console.log("den står på højre side");
                             if (x1 < (shapes2[j].x + shapes2[j].width)) {
-                                x1 = (shapes2[j].x + shapes2[j].width);
+                            	if (y1 > shapes2[j].y + shapes2[j].height) {
+                            		console.log("den er over på højre side");
+                            		shapes2[i].x = x1;
+                            		if (shapes2[i - 1].y > 0) {
+                            			shapes2[i].y = shapes2[i - 1].y;
+                            		} else {
+                            			shapes2[i].y = y1;
+                            		}
+                   					repeater(can, shapes2);
+                   					can.canvas.removeEventListener('click', placeInmyCanvas);
+                            		return true;
+                            		break;
+                            	} else {
+                            		x1 = (shapes2[j].x + shapes2[j].width);
+                            	}
                             }
                         } else {
-                            console.log("den står på venstre side")
+                            console.log("den står på venstre side");
                             if ((x1 + shapes2[i].width) > shapes2[j].x) {
-                                x1 = shapes2[j].x - shapes2[i].width;
-                            }
-                        }
-                        if (y1 > shapes2[j].y) {
-                            console.log("den ligger under objektet")
-                            if ((y1 + shapes2[i].height) > shapes2[j].y) {
-                                y1 = shapes2[j].y - shapes2[i].height;
-                            }
-                        } else {
-                            console.log("den står på venstre side")
-                            if ((x1 + shapes2[i].width) > shapes2[j].x) {
-                                x1 = shapes2[j].x - shapes2[i].width;
+                            	if (y1 > shapes2[j].y + shapes2[j].height) {
+                            		console.log("den er over på venstre side");
+                            		shapes2[i].x = x1;
+                            		if (shapes2[i - 1].y > 0) {
+                            			shapes2[i].y = shapes2[i - 1].y
+                            		} else {
+                            			shapes2[i].y = y1;
+                            		}
+                    				repeater(can, shapes2);
+                    				can.canvas.removeEventListener('click', placeInmyCanvas);
+                            		return true;
+                            		break;
+                            	} else {
+                            		x1 = shapes2[j].x - shapes2[i].width;
+                            	}
                             }
                         }
                     }
+
                     shapes2[i].x = x1;
                     shapes2[i].y = y1;
 
@@ -311,45 +309,10 @@ let hittest = function (ev) {
                         shapes[i].price,
                         shapes[i].name);
                 isOverlapping(obj); 
-            } else {
-                obj = Object.create(circle);
-                obj.init(can, x1, y1, 
-                        shapes[i].radius, shapes[i].Start, shapes[i].End, shapes[i].sandt,
-                        shapes[i].color);
-                isOverlapping(obj);
             }
             repeater(can, shapes2);
         };
     }
-        /*if (cx.isPointInPath(x, y)) {
-            // we're in a loop, is this array element the 
-            // one we clicked? If yes click in other canvas
-            can.canvas.addEventListener('click', function placeInmyCanvas(e) {
-                    let bb1 = this.getBoundingClientRect();    // yes
-                    // other canvas as std object
-                    // convert mouse coordinates to canvas coordinates
-                    let x1 = (e.clientX - bb1.left) * (this.width / bb1.width) - (shapes[i].width / 2);
-                    let y1 = (e.clientY - bb1.top) * (this.height / bb1.height) - (shapes[i].height / 2);
-                    let obj;
-                    if (shapes[i].type === "rect") {
-                        obj = Object.create(Shape);
-                        obj.init(can, x1, y1, 
-                                shapes[i].width, shapes[i].height,
-                                shapes[i].color,
-                                shapes[i].price,
-                                shapes[i].name);
-                        isOverlapping(obj); 
-                    } else {
-                        obj = Object.create(circle);
-                        obj.init(can, x1, y1, 
-                                shapes[i].radius, shapes[i].Start, shapes[i].End, shapes[i].sandt,
-                                shapes[i].color);
-                        isOverlapping(obj);
-                    }
-                    repeater(can, shapes2);
-                    can.canvas.removeEventListener('click', placeInmyCanvas);
-                });
-        }*/
 }
 
 let paint = function (cv, arr) {
